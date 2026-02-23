@@ -6,9 +6,26 @@
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%), #f0f2f5;
   font-family: 'Inter', system-ui, sans-serif;
   min-height: 100vh;
+  background-image: url('/src/assets/padel.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.60);
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 h1, h2, h3 {
