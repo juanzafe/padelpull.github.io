@@ -14,8 +14,8 @@ export const translations = {
     matches: "Partidos",
     reserves: "Reservas",
     notEnoughPlayers: "No tienes jugadores suficientes",
-    empty:
-      "Añade jugadores con + y genera partidos con el botón de mezclar"
+    empty: "Añade jugadores con + y genera partidos con el botón de mezclar",
+    authors: "Hecho por"
   },
 
   en: {
@@ -31,7 +31,7 @@ export const translations = {
     matches: "Matches",
     reserves: "Reserve players",
     notEnoughPlayers: "Not enough players",
-    empty:
-      "Add players using + and generate matches using shuffle"
+    empty: "Add players using + and generate matches using shuffle",
+    authors: "Made by"
   }
 };
