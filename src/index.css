@@ -18,8 +18,8 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.60);
+  backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.40);
   z-index: 0;
 }
 
