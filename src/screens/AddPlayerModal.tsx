@@ -62,7 +62,6 @@ const AddPlayerModal = ({ visible, onClose, onAddPlayer }: AddPlayerModalProps) 
           }}
         />
 
-        {/* Side selector como chips */}
         <div style={{ marginTop: 20, marginBottom: 8 }}>
           <p style={{ fontSize: 13, color: '#888', margin: '0 0 10px 2px', fontWeight: 500 }}>
             {t("side")}

@@ -15,7 +15,13 @@ export const translations = {
     reserves: "Reservas",
     notEnoughPlayers: "No tienes jugadores suficientes",
     empty: "Añade jugadores con + y genera partidos con el botón de mezclar",
-    authors: "Hecho por"
+    authors: "Hecho por",
+    missingDrive: "Faltan jugadores de derecha",
+    missingBackhand: "Faltan jugadores de revés",
+    imbalanceWarning: "Los equipos pueden quedar descompensados. ¿Quieres generar la pull igualmente?",
+    generateAnyway: "Generar igualmente",
+    cancel: "Cancelar",
+    players: "Jugadores"
   },
 
   en: {
@@ -32,6 +38,12 @@ export const translations = {
     reserves: "Reserve players",
     notEnoughPlayers: "Not enough players",
     empty: "Add players using + and generate matches using shuffle",
-    authors: "Made by"
+    authors: "Made by",
+    missingDrive: "Not enough forehand players",
+    missingBackhand: "Not enough backhand players",
+    imbalanceWarning: "Teams may be unbalanced. Do you still want to generate the matches?",
+    generateAnyway: "Generate anyway",
+    cancel: "Cancel",
+    players: "Players"
   }
 };

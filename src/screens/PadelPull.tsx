@@ -6,11 +6,8 @@ import SportsTennisIcon from '@mui/icons-material/SportsTennis';
 import {
   Fab,
   IconButton,
-  List,
-  ListItemText,
   ToggleButton,
   ToggleButtonGroup,
-  Chip,
   Paper
 } from "@mui/material";
 
@@ -34,10 +31,9 @@ const PadelPull = ({
   const { t, language, changeLanguage } = useLanguage();
 
   return (
-    <div style={{ maxWidth: 480, margin: '0 auto', padding: '0 16px', paddingBottom: 100 }}>
+    <div style={{ padding: '0 16px', paddingBottom: 100 }}>
       <LanguageSelector language={language} changeLanguage={changeLanguage} />
 
-      {/* Header */}
       <div style={{ textAlign: 'center', paddingTop: 56, paddingBottom: 32 }}>
         <div style={{
           display: 'inline-flex',
@@ -53,18 +49,23 @@ const PadelPull = ({
           <SportsTennisIcon sx={{ color: 'white', fontSize: 28 }} />
         </div>
         <h1 style={{ fontSize: 28, color: '#1a1a2e' }}>{t("title")}</h1>
+
         {players.length > 0 && (
-          <Chip
-            label={`${players.length} jugadores`}
-            size="small"
-            sx={{
-              marginTop: 1,
-              background: 'rgba(102,126,234,0.12)',
-              color: '#667eea',
-              fontWeight: 600,
-              fontSize: 12
-            }}
-          />
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            marginTop: 10,
+            background: 'linear-gradient(135deg, #667eea, #764ba2)',
+            borderRadius: 20,
+            padding: '6px 16px',
+            boxShadow: '0 4px 12px rgba(102,126,234,0.35)'
+          }}>
+            <span style={{ fontSize: 16 }}>👥</span>
+            <span style={{ color: 'white', fontWeight: 700, fontSize: 15 }}>
+              {players.length} {t("players")}
+            </span>
+          </div>
         )}
       </div>
 
@@ -90,8 +91,6 @@ const PadelPull = ({
     </div>
   );
 };
-
-/* ── Language Selector ── */
 
 interface LanguageSelectorProps {
   language: Language;
@@ -127,22 +126,22 @@ const LanguageSelector = ({ language, changeLanguage }: LanguageSelectorProps) =
   </ToggleButtonGroup>
 );
 
-/* ── Players List ── */
-
 interface PlayersListProps {
   players: Player[];
   onDeletePlayerClick: (player: Player) => void;
 }
 
 const PlayersList = ({ players, onDeletePlayerClick }: PlayersListProps) => (
-  <List sx={{ padding: 0, display: 'flex', flexDirection: 'column', gap: 1 }}>
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+    gap: 10
+  }}>
     {players.map((player) => (
       <PlayerItem key={player.id} player={player} onDeletePlayerClick={onDeletePlayerClick} />
     ))}
-  </List>
+  </div>
 );
-
-/* ── Player Item ── */
 
 interface PlayerItemProps {
   player: Player;
@@ -164,7 +163,7 @@ const PlayerItem = ({ player, onDeletePlayerClick }: PlayerItemProps) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        padding: '10px 12px',
+        padding: '12px 14px',
         borderRadius: 3,
         background: 'white',
         border: '1px solid #f0f0f8',
@@ -177,33 +176,46 @@ const PlayerItem = ({ player, onDeletePlayerClick }: PlayerItemProps) => {
         onClick={() => onDeletePlayerClick(player)}
         sx={{
           color: '#ccc',
+          flexShrink: 0,
           '&:hover': { color: '#ff6b6b', background: '#fff0f0' }
         }}
       >
         <DeleteIcon fontSize="small" />
       </IconButton>
 
-      <ListItemText
-        primary={player.name}
-        sx={{ ml: 1, '& .MuiListItemText-primary': { fontWeight: 600, fontSize: 15, color: '#1a1a2e' } }}
-      />
+      <span style={{
+        flex: 1,
+        fontWeight: 600,
+        fontSize: 15,
+        color: '#1a1a2e',
+        marginLeft: 8,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+        minWidth: 0
+      }}>
+        {player.name}
+      </span>
 
-      <Chip
-        label={`${side.emoji} ${side.label}`}
-        size="small"
-        sx={{
-          fontSize: 11,
-          fontWeight: 600,
-          background: `${side.color}15`,
-          color: side.color,
-          border: `1px solid ${side.color}30`
-        }}
-      />
+      <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 5,
+        background: `${side.color}18`,
+        border: `1.5px solid ${side.color}40`,
+        borderRadius: 10,
+        padding: '5px 10px',
+        flexShrink: 0,
+        marginLeft: 8
+      }}>
+        <span style={{ fontSize: 16 }}>{side.emoji}</span>
+        <span style={{ fontSize: 13, fontWeight: 700, color: side.color }}>
+          {side.label}
+        </span>
+      </div>
     </Paper>
   );
 };
-
-/* ── FAB Buttons ── */
 
 interface FabButtonProps { onClick: () => void; }
 
