@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: 'Padel Pull',
         short_name: 'PadelPull',
-        description: 'Genera partidos de pádel aleatorios',
+        description: 'Generate random matches for your padel sessions',
         theme_color: '#667eea',
         background_color: '#f0f2f5',
         display: 'standalone',
