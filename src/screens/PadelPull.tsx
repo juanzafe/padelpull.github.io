@@ -152,9 +152,9 @@ interface PlayerItemProps {
 }
 
 const sideConfig: Record<PreferredSide, { emoji: string; label: string; color: string }> = {
-  [PreferredSide.Backhand]: { emoji: "⬅️", label: "Revés", color: "#667eea" },
-  [PreferredSide.Drive]: { emoji: "➡️", label: "Derecha", color: "#764ba2" },
-  [PreferredSide.Both]: { emoji: "↔️", label: "Ambos", color: "#f093fb" },
+  [PreferredSide.Backhand]: { emoji: "⬅️", label: "backhand", color: "#667eea" },
+  [PreferredSide.Drive]: { emoji: "➡️", label: "drive", color: "#764ba2" },
+  [PreferredSide.Both]: { emoji: "↔️", label: "both", color: "#f093fb" },
 };
 
 const PlayerItem = ({ player, onDeletePlayerClick }: PlayerItemProps) => {
