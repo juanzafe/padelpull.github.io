@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
+import { defineConfig, mergeConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react-swc'
 import { VitePWA } from 'vite-plugin-pwa'
 
-export default defineConfig({
+const viteConfig = defineConfig({
   plugins: [
     react(),
     VitePWA({
@@ -40,3 +40,12 @@ export default defineConfig({
     })
   ],
 })
+
+export default mergeConfig(viteConfig, defineConfig({
+  test: {
+     environment: 'jsdom',
+    globals: true,
+    setupFiles: ['./src/test/setup.ts'],
+    exclude: ['**/node_modules/**', '**/e2e/**'],
+  }
+}))
